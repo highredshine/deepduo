@@ -19,7 +19,6 @@ tf.random.set_seed(0)
 BATCH_SIZE = 32
 
 def main():
-    # TODO: add option to load different training sets
 
     # load the data
     en_es_train_dev, es_en_train, es_en_dev, es_en_test, mappings1, u1, c1 = get_en_es_data(0,0)

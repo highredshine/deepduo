@@ -191,7 +191,6 @@ def process_metadata(metadata_list, mappings):
             metadata[j] = m[:10] + morphological_features
         # in order to have a valid input as a tensor, we need to have input size as equal for all inputs
         # we thus pad the metadata matrix with meaningless values (-1) into a shape of (max_token_size, num_of_features)
-        # TODO: verify if 0 padding will work
         dummy = [0] * num_of_features
         metadata += [dummy] * (MAX_TOKEN_SIZE - len(metadata))
         metadata_list[i] = metadata

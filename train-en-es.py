@@ -44,8 +44,6 @@ def main():
         for i in tqdm(range(0, len(train_sentence_idx), BATCH_SIZE)):
             x_batch = train_sentence_idx[i: i+BATCH_SIZE]
             y_batch = labels_array[i: i+BATCH_SIZE]
-            # TODO: check whether the changed input with a different shape (explained above) work for this part
-            # original code: x_user_batch = train_user_idx[i: i+BATCH_SIZE]
             x_metadata_batch = train_metadata[i: i+BATCH_SIZE]
 
             mask = create_padding_mask(x_batch)

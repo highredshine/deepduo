@@ -41,13 +41,10 @@ def main():
     model = EncoderDecoder(len(token_to_idx), mappings, 100, 100, 4, 100, 100)
     for j in range(10):
         print("Epoch ", j+1)
-        # TODO: shuffle training data
         total_loss = 0
         for i in tqdm(range(0, len(train_sentence_idx), BATCH_SIZE)):
             x_batch = train_sentence_idx[i: i+BATCH_SIZE]
             y_batch = labels_array[i: i+BATCH_SIZE]
-            # TODO: check whether the changed input with a different shape (explained above) work for this part
-            # original code: x_user_batch = train_user_idx[i: i+BATCH_SIZE]
             x_metadata_batch = train_metadata[i: i+BATCH_SIZE]
 
             mask = create_padding_mask(x_batch)
@@ -75,7 +72,6 @@ def predict(model, data, token_to_idx):
         user_to_idx {dict} -- the mapping from user to idx
     """
     raw_sent, raw_users, all_instance_ids, labels_dict  = data
-    # TODO: same as above
     sent_idx = process_sentence(raw_sent, token_to_idx)
     user_idx = raw_users
     flattened_instance_ids = []
